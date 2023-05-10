@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet } from "react-native";
 import Text from "./Text";
 
-const AppBarrTab = ({ label }) => {
+const AppBarTab = ({ label }) => {
   const styles = StyleSheet.create({
     navText: {
       padding: 10,
@@ -17,4 +17,4 @@ const AppBarrTab = ({ label }) => {
   );
 };
 
-export default AppBarrTab;
+export default AppBarTab;

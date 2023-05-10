@@ -1,13 +1,13 @@
 import Constants from "expo-constants";
 import { View, StyleSheet } from "react-native";
-import AppBarrTab from "./AppBarTab";
+import AppBarTab from "./AppBarTab";
 import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.backgrounds.navigationBg,
-    height: 100,
+    height: 120,
     display: "flex",
 
     justifyContent: "center",
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 const AppBar = () => {
   return (
     <View style={styles.container}>
-      <AppBarrTab label="Repositories" />
+      <AppBarTab label="Repositories" />
     </View>
   );
 };
