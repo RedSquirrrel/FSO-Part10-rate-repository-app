@@ -11,3 +11,4 @@
     - Ex: 10.4 - the app bar
     - Ex: 10.5 - polished reviewed repositories list
     - Ex: 10.6 - the sign-in view
+    - Ex: 10.7 - scrollable app bar
