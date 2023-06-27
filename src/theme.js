@@ -1,3 +1,15 @@
+import { Platform, StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: Platform.select({
+      android: "Roboto",
+      ios: "Arial",
+      default: "System",
+    }),
+  },
+});
+
 const theme = {
   colors: {
     textPrimary: "#24292e",
@@ -18,7 +30,7 @@ const theme = {
     navigation: 18,
   },
   fonts: {
-    main: "System",
+    main: styles.text.fontFamily,
   },
   fontWeights: {
     normal: "400",
