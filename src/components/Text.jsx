@@ -9,13 +9,13 @@ const styles = StyleSheet.create({
     fontWeight: theme.fontWeights.normal,
   },
   colorTextSecondary: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.white,
   },
   colorPrimary: {
     color: theme.colors.primary,
   },
   colorTextNavigation: {
-    color: theme.colors.textNavigation,
+    color: theme.colors.white,
   },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading,

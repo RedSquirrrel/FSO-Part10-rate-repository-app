@@ -26,7 +26,7 @@ const RepositoryItem = ({ img, fullName, description, language, stars, forks, re
     },
     language: {
       backgroundColor: theme.colors.primary,
-      color: theme.colors.textLanguage,
+      color: theme.colors.white,
 
       alignSelf: "flex-start",
       padding: 10,

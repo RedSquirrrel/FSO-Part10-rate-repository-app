@@ -2,9 +2,9 @@ const theme = {
   colors: {
     textPrimary: "#24292e",
     textSecondary: "#586069",
-    textNavigation: "#fff",
-    textLanguage: "#fff",
     primary: "#0366d6",
+    white: "#fff",
+    inputborder: "#999",
   },
   backgrounds: {
     mainBg: "#e1e4e8",
