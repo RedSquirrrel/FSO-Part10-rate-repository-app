@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
   colorTextNavigation: {
     color: theme.colors.white,
   },
+  errorColor: {
+    color: theme.colors.errorColor,
+  },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading,
   },
@@ -34,6 +37,7 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
     color === "textSecondary" && styles.colorTextSecondary,
     color === "primary" && styles.colorPrimary,
     color === "navigation" && styles.colorTextNavigation,
+    color === "errorColor" && styles.errorColor,
     fontSize === "subheading" && styles.fontSizeSubheading,
     fontSize === "navFontSize" && styles.fontSizeNavigation,
     fontWeight === "bold" && styles.fontWeightBold,

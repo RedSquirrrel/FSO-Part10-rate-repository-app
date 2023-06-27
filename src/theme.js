@@ -5,6 +5,7 @@ const theme = {
     primary: "#0366d6",
     white: "#fff",
     inputborder: "#999",
+    errorColor: "#d73a4a",
   },
   backgrounds: {
     mainBg: "#e1e4e8",
