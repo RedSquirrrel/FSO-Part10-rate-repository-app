@@ -15,3 +15,7 @@
     - Ex: 10.8 - the sign-in form
     - Ex: 10.9 - validating the sign-in form
     - Ex: 10.10 - a platform-specific font
+
+### Part 3 (c)
+
+    - Ex: 10.11 - fetching repositories with Apollo Client
