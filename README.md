@@ -19,3 +19,4 @@
 ### Part 3 (c)
 
     - Ex: 10.11 - fetching repositories with Apollo Client
+    - Ex: 10.12 - environment variables
