@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import Text from "./Text";
 import FormikTextInput from "./FormikTextInput";
+import { useSignIn } from "../hooks/useSignIn";
 import theme from "../theme";
 
 const styles = StyleSheet.create({
@@ -29,8 +30,19 @@ const validationSchema = yup.object().shape({
 });
 
 const SignIn = () => {
-  const onSubmit = values => {
-    console.log("VALUES", values);
+  const [signIn, result] = useSignIn();
+  console.log("[SIGN IN RESULT]", result);
+
+  const onSubmit = async values => {
+    const { username, password } = values;
+
+    try {
+      const { data } = await signIn({ username, password });
+      console.log("[SIGN IN DATA IS]", data);
+      return data;
+    } catch (e) {
+      console.log("[SIGN IN ERROR]", e);
+    }
   };
 
   const initialValues = {
