@@ -1,13 +1,15 @@
 import { Pressable, StyleSheet, View } from "react-native";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-native";
+
 import Text from "./Text";
 import FormikTextInput from "./FormikTextInput";
-import AuthStorage from "../utils/authStorage";
+// import AuthStorage from "../utils/authStorage";
 import { useSignIn } from "../hooks/useSignIn";
 import theme from "../theme";
 
-const authStorage = new AuthStorage();
+// const authStorage = new AuthStorage();
 
 const styles = StyleSheet.create({
   formContainer: {
@@ -34,6 +36,7 @@ const validationSchema = yup.object().shape({
 
 const SignIn = () => {
   const [signIn, result] = useSignIn();
+  const navigate = useNavigate();
   console.log("[SIGN IN RESULT]", result);
 
   const onSubmit = async values => {
@@ -42,10 +45,8 @@ const SignIn = () => {
     try {
       const { data } = await signIn({ username, password });
 
-      const accessToken = await authStorage.getAccessToken();
-
-      if (accessToken) {
-        console.log("[ACCESS TOKEN]", accessToken);
+      if (data) {
+        navigate("/");
       }
       return data;
     } catch (e) {

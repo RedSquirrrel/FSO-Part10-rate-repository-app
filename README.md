@@ -22,3 +22,5 @@
     - Ex: 10.12 - environment variables
     - Ex: 10.13 - the sign in form mutation
     - Ex: 10.14 - storing the access token step1
+    - Ex: 10.15 - storing the access token step2
+    - Ex: 10.16 - sign out
