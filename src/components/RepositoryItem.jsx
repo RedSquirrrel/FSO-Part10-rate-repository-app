@@ -1,11 +1,12 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Button, Pressable, Linking } from "react-native";
 import Text from "./Text";
 import theme from "../theme";
 
-const RepositoryItem = ({ img, fullName, description, language, stars, forks, reviews, rating }) => {
+const RepositoryItem = ({ showUniqueRepository, img, fullName, description, language, stars, forks, reviews, rating, url }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: theme.backgrounds.repoListItemsBg,
+      padding: 10,
     },
     avatarImg: {
       width: 75,
@@ -40,6 +41,12 @@ const RepositoryItem = ({ img, fullName, description, language, stars, forks, re
     },
     counts: {
       textAlign: "center",
+    },
+    openInGithubBtn: {
+      backgroundColor: theme.colors.primary,
+      padding: 15,
+      marginTop: 20,
+      borderRadius: 5,
     },
   });
 
@@ -88,6 +95,15 @@ const RepositoryItem = ({ img, fullName, description, language, stars, forks, re
           <Text>Rating</Text>
         </View>
       </View>
+      {showUniqueRepository ? (
+        <Pressable style={styles.openInGithubBtn} onPress={() => Linking.openURL(url)}>
+          <Text textAlign="center" color="textSecondary" fontWeight="bold" fontSize="linkButton">
+            Open in GitHub
+          </Text>
+        </Pressable>
+      ) : (
+        ""
+      )}
     </View>
   );
 };

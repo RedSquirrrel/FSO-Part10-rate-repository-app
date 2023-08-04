@@ -29,9 +29,15 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  fontSizeLinkButton: {
+    fontSize: theme.fontSizes.linkButton,
+  },
+  textCenter: {
+    textAlign: "center",
+  },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, textAlign, ...props }) => {
   const textStyle = [
     styles.text,
     color === "textSecondary" && styles.colorTextSecondary,
@@ -40,7 +46,9 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
     color === "errorColor" && styles.errorColor,
     fontSize === "subheading" && styles.fontSizeSubheading,
     fontSize === "navFontSize" && styles.fontSizeNavigation,
+    fontSize === "linkButton" && styles.fontSizeLinkButton,
     fontWeight === "bold" && styles.fontWeightBold,
+    textAlign === "center" && styles.textCenter,
     style,
   ];
 

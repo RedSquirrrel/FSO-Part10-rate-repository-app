@@ -28,6 +28,7 @@ const theme = {
     body: 14,
     subheading: 16,
     navigation: 18,
+    linkButton: 17,
   },
   fonts: {
     main: styles.text.fontFamily,
