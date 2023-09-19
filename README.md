@@ -32,3 +32,4 @@
     - Ex: 10.17 - testing the reviewed repositories list
     - Ex: 10.18 - testing the sign in form
     - Ex: 10.19 - the single repository view
+    - Ex: 10.20 - repository's review list
