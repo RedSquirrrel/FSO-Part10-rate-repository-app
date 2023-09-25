@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   submitBtn: {
     backgroundColor: theme.colors.primary,
-    width: "90%",
+    width: "100%",
     padding: 20,
     borderRadius: 5,
     alignItems: "center",

@@ -7,7 +7,6 @@ import useReview from "../hooks/useReview";
 
 import RepositoryItem from "./RepositoryItem";
 import ReviewItem from "./ReviewItem";
-import Text from "./Text";
 
 const Repository = () => {
   const { id } = useParams();

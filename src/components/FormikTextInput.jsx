@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   inputStyle: {
-    width: "90%",
+    width: "100%",
   },
   errorInput: {
-    width: "90%",
+    width: "100%",
     borderColor: theme.colors.errorColor,
   },
   errorText: {
