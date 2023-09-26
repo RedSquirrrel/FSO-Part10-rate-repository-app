@@ -72,7 +72,7 @@ const ReviewForm = () => {
     <View style={styles.formContainer}>
       {result.error && (
         <Text color="errorColor" textAlign="center" fontWeight="bold">
-          User has already reviewed this repository
+          {result.error.message}
         </Text>
       )}
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>

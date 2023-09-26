@@ -36,6 +36,7 @@ const AppBar = () => {
           <AppBarTab label="Repositories" to="/" />
           {data?.me ? <AppBarTab label="Create a review" to="/add-review" /> : <AppBarTab label="" to="/" />}
           {data?.me ? <AppBarTab label="Sign Out" to="/" onPress={handleLogOut} /> : <AppBarTab label="Sign In" to="/signin" />}
+          {data?.me ? <AppBarTab label="" to="/" /> : <AppBarTab label="Sign Up" to="/signup" />}
         </ScrollView>
       </View>
     </Pressable>
