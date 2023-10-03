@@ -97,7 +97,7 @@ const RepositoryItem = ({ showUniqueRepository, img, fullName, description, lang
       </View>
       {showUniqueRepository ? (
         <Pressable style={styles.openInGithubBtn} onPress={() => Linking.openURL(url)}>
-          <Text textAlign="center" color="textSecondary" fontWeight="bold" fontSize="linkButton">
+          <Text textAlign="center" color="white" fontWeight="bold" fontSize="linkButton">
             Open in GitHub
           </Text>
         </Pressable>

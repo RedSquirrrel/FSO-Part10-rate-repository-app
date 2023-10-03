@@ -2,8 +2,9 @@ import { FlatList, View, StyleSheet, Pressable } from "react-native";
 import { useNavigate } from "react-router-native";
 
 import RepositoryItem from "./RepositoryItem";
+import MenuPicker from "./DropdownSelectionMenu/MenuPicker";
 
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, selectedItem, setSelectedItem }) => {
   const repositoryNodes = repositories ? repositories.edges.map(edge => edge.node) : [];
   const navigate = useNavigate();
   const styles = StyleSheet.create({
@@ -17,10 +18,11 @@ const RepositoryListContainer = ({ repositories }) => {
   const goTo = id => {
     navigate(`/${id}`);
   };
-
+  // console.log("[REPOSITORY NODES]", repositoryNodes);
   return (
     <FlatList
       data={repositoryNodes}
+      ListHeaderComponent={<MenuPicker selectedItem={selectedItem} setSelectedItem={setSelectedItem} />}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item }) => (
         <>
