@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORIES } from "../graphql/queries";
 
-const useRepositories = () => {
+const useRepositories = ({ debouncedValue }) => {
   const defaultPrinciple = "Latest repositories";
 
   function getOrderByAndOrderDirection(sortingOption) {
@@ -25,6 +25,7 @@ const useRepositories = () => {
     variables: {
       orderBy,
       orderDirection,
+      searchKeyword: debouncedValue,
     },
     fetchPolicy: "cache-and-network",
   });

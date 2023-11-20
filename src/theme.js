@@ -23,6 +23,7 @@ const theme = {
     mainBg: "#e1e4e8",
     navigationBg: "#24292e",
     repoListItemsBg: "#fff",
+    white: "#fff",
   },
   fontSizes: {
     body: 14,

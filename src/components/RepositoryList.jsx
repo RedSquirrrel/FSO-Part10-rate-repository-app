@@ -1,15 +1,48 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-native";
 import useRepositories from "../hooks/useRepositories";
-import Text from "./Text";
 import RepositoryListContainer from "./RepositoryListContainer";
 
 const RepositoryList = () => {
-  const { repositories, loading, selectedItem, setSelectedItem } = useRepositories();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedValue, setDebouncedValue] = useState(searchQuery);
 
-  if (loading) {
-    return <Text>Loading...</Text>;
+  const { repositories, selectedItem, setSelectedItem } = useRepositories({ debouncedValue });
+  const repositoryNodes = repositories ? repositories.edges.map(edge => edge.node) : [];
+
+  const handleSearch = text => {
+    setSearchQuery(text);
+  };
+
+  function handleCancel() {
+    setSearchQuery("");
+    setDebouncedValue("");
   }
 
-  return <RepositoryListContainer repositories={repositories} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />;
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      if (searchQuery) {
+        setDebouncedValue(searchQuery);
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [searchQuery]);
+
+  return (
+    <RepositoryListContainer
+      selectedItem={selectedItem}
+      setSelectedItem={setSelectedItem}
+      searchQuery={searchQuery}
+      handleSearch={handleSearch}
+      handleCancel={handleCancel}
+      repositoryNodes={repositoryNodes}
+      navigate={navigate}
+    />
+  );
 };
 
 export default RepositoryList;
