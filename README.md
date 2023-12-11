@@ -37,3 +37,4 @@
     - Ex: 10.22 - the sign up form
     - Ex: 10.23 - sorting the reviewed repositories list
     - Ex: 10.24 - filtering the reviewed repositories list
+    - Ex: 10.25 - the user's reviews view

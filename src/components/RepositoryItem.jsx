@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, Button, Pressable, Linking } from "react-native";
+import { View, StyleSheet, Image, Pressable, Linking } from "react-native";
 import Text from "./Text";
 import theme from "../theme";
 
