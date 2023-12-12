@@ -1,4 +1,6 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Pressable, Alert, ToastAndroid } from "react-native";
+import { useNavigate } from "react-router-native";
+import useDeleteReview from "../../hooks/useDeleteReview";
 import Text from "../Text";
 import theme from "../../theme";
 
@@ -37,10 +39,53 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     marginBottom: 10,
   },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+    marginVertical: 20,
+  },
+  viewRepositoryBtn: {
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary,
+    paddingVertical: 15,
+    width: 150,
+    borderRadius: 5,
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+  },
+  deleteReviewBtn: {
+    color: theme.colors.white,
+    backgroundColor: theme.colors.errorColor,
+    paddingVertical: 15,
+    width: 150,
+    borderRadius: 5,
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+  },
 });
 
 const MyReviewsItem = ({ reviews }) => {
   const reviewDate = reviews.createdAt.split("T")[0].split("-").reverse().join(".");
+  const navigation = useNavigate();
+  const [deleteReview] = useDeleteReview();
+
+  const handleViewRepository = id => {
+    navigation(`/${id}`);
+  };
+
+  const handleDeleteReviewAlert = id => {
+    Alert.alert("Delete review", "Are you sure you want to delete this review?", [
+      { text: "Cancel", onPress: () => showToast("Deletion canceled") },
+      { text: "Delete", onPress: () => deleteReview(id) },
+    ]);
+  };
+
+  const showToast = message => {
+    ToastAndroid.show(message, ToastAndroid.SHORT);
+  };
 
   return (
     <View style={styles.container}>
@@ -58,6 +103,15 @@ const MyReviewsItem = ({ reviews }) => {
           <Text style={styles.reviewDate}>{reviewDate}</Text>
           <Text>{reviews.text}</Text>
         </View>
+      </View>
+
+      <View style={styles.buttonsContainer}>
+        <Pressable onPress={() => handleViewRepository(reviews.repositoryId)}>
+          <Text style={styles.viewRepositoryBtn}>View repository</Text>
+        </Pressable>
+        <Pressable onPress={() => handleDeleteReviewAlert(reviews.id)}>
+          <Text style={styles.deleteReviewBtn}>Delete review</Text>
+        </Pressable>
       </View>
     </View>
   );
