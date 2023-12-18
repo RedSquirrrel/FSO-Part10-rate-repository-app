@@ -8,7 +8,7 @@ const RepositoryList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedValue, setDebouncedValue] = useState(searchQuery);
 
-  const { repositories, selectedItem, setSelectedItem } = useRepositories({ debouncedValue });
+  const { repositories, selectedItem, setSelectedItem, fetchMore } = useRepositories({ debouncedValue });
   const repositoryNodes = repositories ? repositories.edges.map(edge => edge.node) : [];
 
   const handleSearch = text => {
@@ -32,6 +32,10 @@ const RepositoryList = () => {
     };
   }, [searchQuery]);
 
+  const onEndReach = () => {
+    fetchMore();
+  };
+
   return (
     <RepositoryListContainer
       selectedItem={selectedItem}
@@ -41,6 +45,7 @@ const RepositoryList = () => {
       handleCancel={handleCancel}
       repositoryNodes={repositoryNodes}
       navigate={navigate}
+      onEndReach={onEndReach}
     />
   );
 };

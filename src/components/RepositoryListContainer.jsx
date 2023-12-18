@@ -19,7 +19,7 @@ class RepositoryListContainer extends React.Component {
   };
 
   render() {
-    const { repositoryNodes } = this.props;
+    const { repositoryNodes, onEndReach } = this.props;
 
     const styles = StyleSheet.create({
       separator: {
@@ -34,6 +34,8 @@ class RepositoryListContainer extends React.Component {
     };
     return (
       <FlatList
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
         data={repositoryNodes}
         ListHeaderComponent={this.renderHeader}
         ItemSeparatorComponent={ItemSeparator}

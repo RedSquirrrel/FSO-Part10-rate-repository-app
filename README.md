@@ -39,3 +39,4 @@
     - Ex: 10.24 - filtering the reviewed repositories list
     - Ex: 10.25 - the user's reviews view
     - Ex: 10.26 - review actions
+    - Ex: 10.27 - infinite scrolling for the repository's reviews list
