@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-native";
 
-import { useReview } from "../hooks/useReviewForm";
+import useReviewForm from "../hooks/useReviewForm";
 import FormikTextInput from "./FormikTextInput";
 import Text from "./Text";
 import theme from "../theme";
@@ -35,7 +35,7 @@ const validationSchema = yup.object().shape({
 });
 
 const ReviewForm = () => {
-  const [addReview, result] = useReview();
+  const [addReview, result] = useReviewForm();
 
   const initialValues = {
     ownerName: "",

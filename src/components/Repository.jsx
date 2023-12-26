@@ -9,10 +9,11 @@ import RepositoryItem from "./RepositoryItem";
 import ReviewItem from "./ReviewItem";
 
 const Repository = () => {
+  let first = 5;
   const { id } = useParams();
   const { repository } = useRepository(id);
   const [showUniqueRepository, setShowUniqueRepository] = useState(false);
-  const { reviews } = useReview(id);
+  const { reviews, fetchMore } = useReview(id, first);
 
   const styles = StyleSheet.create({
     separator: {
@@ -26,11 +27,17 @@ const Repository = () => {
     if (id) setShowUniqueRepository(true);
   }, []);
 
+  const onEndReached = () => {
+    fetchMore();
+  };
+
   return (
     <>
       {repository && (
         <FlatList
           data={reviews}
+          onEndReached={onEndReached}
+          onEndReachedThreshold={0.5}
           ItemSeparatorComponent={ItemSeparator}
           renderItem={({ item }) => <ReviewItem key={item.id} review={item} />}
           keyExtractor={({ id }) => id}

@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_REVIEW } from "../graphql/mutations";
 
-export const useReview = () => {
+const useReviewForm = () => {
   const [mutate, result] = useMutation(ADD_REVIEW);
 
   const addReview = async ({ ownerName, repositoryName, rating, text }) => {
@@ -28,3 +28,5 @@ export const useReview = () => {
 
   return [addReview, result];
 };
+
+export default useReviewForm;

@@ -77,11 +77,12 @@ export const REPOSITORY = gql`
 `;
 
 export const REVIEWLIST = gql`
-  query getReviews($reviewList: ID!) {
-    repository(id: $reviewList) {
+  query getReviews($repositoryID: ID!, $first: Int, $after: String) {
+    repository(id: $repositoryID) {
       id
       fullName
-      reviews {
+      reviews(first: $first, after: $after) {
+        totalCount
         edges {
           node {
             id
@@ -93,6 +94,12 @@ export const REVIEWLIST = gql`
               username
             }
           }
+          cursor
+        }
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
         }
       }
     }
